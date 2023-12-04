@@ -1,0 +1,16 @@
+# Linux Systemd Module
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: httpd
+
+- name: stop service cron 
+  systemd: 
+    name: cron
+    state: stopped
+
+- name: reload service httpd, in all cases 
+  systemd:
+    name: httpd
+    state: reloaded
+

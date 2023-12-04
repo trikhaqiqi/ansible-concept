@@ -1,0 +1,15 @@
+tasks:
+- name: Bikin directory buat nginx
+  file: 
+    file: /etc/nginx
+    state: directory
+
+- name: Install nginx dengan versi terakhir
+  apt: 
+    name: nginx
+    state: present
+
+- name: Mulai nginx service
+  systemd:
+    name: nginx
+    state: started

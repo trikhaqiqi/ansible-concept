@@ -1,0 +1,20 @@
+# docker container 
+- name: Create a data container
+  docker_container:
+    name: mydata
+    image: busybox
+    volumes: 
+      - /data
+
+- name: Stop a container
+  docker_container:
+    name: mycontainer
+    state: stopped
+
+- name: Create db container and connect to network
+  docker_container:
+    name: db_test
+    image:  "postgres:latest"
+    networks:
+        name: "{{ docker_network_name }}"
+        

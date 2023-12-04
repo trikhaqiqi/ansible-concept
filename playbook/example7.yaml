@@ -1,0 +1,25 @@
+- hosts: webserver
+  remote_user: root
+  tasks:
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Jalanin nginx
+    systemd:
+      name: nginx
+      start: started
+
+- hosts: databases
+  remote_user: root
+  tasks:
+  - name: bikin table
+    postgresql_table:
+      table: foo
+      rename: bar
+
+  - name: Kosongin table foo
+    postgresql_table:
+      name: foo
+      truncate: yes

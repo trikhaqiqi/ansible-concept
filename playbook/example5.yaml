@@ -1,0 +1,13 @@
+- hosts: databases
+  remote_user: root
+
+  tasks:
+  - name: Bikin table
+    postgresql_table:
+      table: foo
+      rename: bar
+
+  - name: Kosongkan table foo
+    postgresql_table:
+      name: foo
+      truncate: yes

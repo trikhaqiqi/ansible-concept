@@ -1,0 +1,15 @@
+- hosts: databases
+  remote_user: root
+  vars: 
+    table_name: foo
+
+  tasks:
+  - name: Bikin table
+    postgresql_table:
+      table: {{ table_name }}
+      rename: bar
+
+  - name: Kosongin table {{ table_name }}
+    postgresql_table:
+      name: {{ table_name }}
+      truncate: yes

@@ -1,0 +1,16 @@
+# Postgres Module
+- name: Rename table foo to bar
+  postgresql_table:
+    table: foo
+    rename: bar
+
+- name: Drop table bar cascade 
+  postgresql_table:
+    name: bar
+    state: absent
+    cascade: yes
+
+- name: Set owner to someuser
+  postgresql_table:
+    name: foo
+    owner: someuser
